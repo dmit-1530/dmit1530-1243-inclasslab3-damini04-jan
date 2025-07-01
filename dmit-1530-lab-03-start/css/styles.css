@@ -33,7 +33,6 @@ body {
 
 .logo {
   font-size: 1.5rem;
-  font-weight: bold;
 }
 
 /* Nav Items */
@@ -97,6 +96,10 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+
+  .logo{
+    font-size: 2rem;
   }
 
   .nav-items {
