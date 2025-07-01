@@ -1,38 +1,217 @@
-/* Variables */
-:root {
-    --accent: #0e7490;
-    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --rose-700: #be123c;
-    --slate-50: #f8fafc;
-    --slate-200: #e2e8f0;
-    --slate-800: #1e293b;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-/* Utility Classes */
-
-
-
-/* Universal Styles */
 
 body {
-    color: var(--slate-800);
-    font-family: "Open Sans", sans-serif;
-    font-size: 1.25rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-h1 {
-    font-size: 1.65rem;
-    font-weight: normal;
+/* Header Navigation */
+.header {
+    background-color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
-/* Header Styles */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-header {
-    background-color: var(--slate-50);
-    border-bottom: 1px solid var(--slate-200);
-    box-shadow: var(--box-shadow);
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+}
+
+.nav-item:hover {
+    color: #333;
+}
+
+/* Notification badges */
+.badge {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+}
+
+/* Mobile Menu (Initially Hidden) */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 2000;
+    padding: 2rem;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu .logo {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.mobile-menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.mobile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.mobile-menu-item:hover {
+    color: #666;
+}
+
+.mobile-menu-item .badge {
+    position: static;
+    margin-left: auto;
+}
+
+/* Icons */
+.icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+}
+
+.icon-bell::before {
+    content: "🔔";
+    font-size: 20px;
+}
+
+.icon-message::before {
+    content: "✉️";
+    font-size: 20px;
+}
+
+.icon-user::before {
+    content: "👤";
+    font-size: 20px;
+}
+
+/* Hamburger Menu Button */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
     padding: 0.5rem;
 }
 
-/* Media Query */
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+}
 
+/* Close button for mobile menu */
+.close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Main content */
+.main-content {
+    margin-top: 100px;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-items {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .header {
+        padding: 1rem;
+    }
+
+    .mobile-menu-item {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-menu {
+        padding: 1.5rem;
+    }
+
+    .mobile-menu .logo {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .mobile-menu-item {
+        font-size: 1.1rem;
+        padding: 0.75rem 0;
+    }
+}
