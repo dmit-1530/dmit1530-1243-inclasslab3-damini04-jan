@@ -1,217 +1,126 @@
+/* Reset & Base Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background-color: #f9fafb;
+  color: #111827;
 }
 
-/* Header Navigation */
+/* Header Layout */
 .header {
-    background-color: white;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+  background-color: #f9fafb;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
+/* Nav Items */
 .nav-items {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .nav-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #666;
-    text-decoration: none;
-    font-size: 1rem;
-    position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #111827;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .nav-item:hover {
-    color: #333;
+  color: #1f2937;
 }
 
-/* Notification badges */
-.badge {
-    background-color: #dc3545;
-    color: white;
-    border-radius: 50%;
-    min-width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 600;
-    position: absolute;
-    top: -8px;
-    right: -8px;
+.label {
+  font-size: 1rem;
 }
 
-/* Mobile Menu (Initially Hidden) */
-.mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: white;
-    z-index: 2000;
-    padding: 2rem;
+/* Icon and Badge */
+.icon-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
 }
 
-.mobile-menu.active {
-    display: block;
-}
-
-.mobile-menu .logo {
-    font-size: 2rem;
-    margin-bottom: 3rem;
-    color: #333;
-}
-
-.mobile-menu-items {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.mobile-menu-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
-    color: #333;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 500;
-    border-bottom: 1px solid #eee;
-    position: relative;
-}
-
-.mobile-menu-item:hover {
-    color: #666;
-}
-
-.mobile-menu-item .badge {
-    position: static;
-    margin-left: auto;
-}
-
-/* Icons */
 .icon {
-    width: 24px;
-    height: 24px;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: #111827;
 }
 
-.icon-bell::before {
-    content: "🔔";
-    font-size: 20px;
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #be123c;
+  color: white;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.icon-message::before {
-    content: "✉️";
-    font-size: 20px;
-}
-
-.icon-user::before {
-    content: "👤";
-    font-size: 20px;
-}
-
-/* Hamburger Menu Button */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 0.5rem;
-}
-
-.menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 3px 0;
-    transition: 0.3s;
-}
-
-/* Close button for mobile menu */
-.close-btn {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #666;
-}
-
-/* Main content */
-.main-content {
-    margin-top: 100px;
-    padding: 2rem;
-    text-align: center;
-}
-
-/* Responsive Design */
+/* Responsive Layout */
 @media (max-width: 768px) {
-    .nav-items {
-        display: none;
-    }
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 
-    .menu-toggle {
-        display: flex;
-    }
+  .nav-items {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
-    .header {
-        padding: 1rem;
-    }
+  .nav-item {
+    gap: 1rem;
+    font-size: 1.25rem;
+  }
 
-    .mobile-menu-item {
-        font-size: 1.25rem;
-    }
-}
+  .label {
+    font-size: 1.2rem;
+  }
 
-@media (max-width: 480px) {
-    .mobile-menu {
-        padding: 1.5rem;
-    }
+  .icon-wrapper {
+    width: 28px;
+    height: 28px;
+  }
 
-    .mobile-menu .logo {
-        font-size: 1.75rem;
-        margin-bottom: 2rem;
-    }
-
-    .mobile-menu-item {
-        font-size: 1.1rem;
-        padding: 0.75rem 0;
-    }
+  .badge {
+    width: 20px;
+    height: 20px;
+    font-size: 0.75rem;
+  }
 }
